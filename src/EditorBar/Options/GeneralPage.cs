@@ -11,18 +11,24 @@ namespace JPSoftworks.EditorBar.Options;
 
 public class GeneralPage : BaseOptionModel<GeneralPage>
 {
-    [Category("Apperance")]
+    [Category("Appearance")]
     [DisplayName("Bar position")]
     [Description("Position of the editor bar (change will be applied to a newly opened documents)")]
     [DefaultValue(Options.BarPosition.Top)]
     [TypeConverter(typeof(EnumConverter))]
     public BarPosition BarPosition { get; set; } = BarPosition.Top;
 
-    [Category("Apperance")]
+    [Category("Appearance")]
     [DisplayName("Show relative path")]
     [Description("Show path relative to the solution root")]
     [DefaultValue(true)]
     public bool ShowPathRelativeToSolutionRoot { get; set; } = true;
+
+    [Category("Appearance")]
+    [DisplayName("Slim Mode")]
+    [Description("Reduce vertical height")]
+    [DefaultValue(false)]
+    public bool VerticalSlimMode { get; set; }
 
     public override Task SaveAsync()
     {
